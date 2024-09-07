@@ -1,0 +1,49 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+    Layout = null;
+
+    var pageTitle = !string.IsNullOrEmpty(ViewBag.Title) ? $"{ViewBag.Title} | Onatrix - Financial Solutions for Your Business" : "Onatrix - Financial Solutions for Your Business";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/07486d9066.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/main.css" />
+ 
+    <title>@pageTitle</title>
+</head>
+<body>
+
+    <div class="wrapper">
+        <header>
+           
+            @await Html.PartialAsync("static/topbar")
+            <section class="navbar">
+                <div class="container">
+                    <a class="logo" href="/">
+                        <img src="images/Brand.svg" alt="">
+                    </a>
+                    <nav>
+                        <a href="/about" class="nav-link">About</a>
+                        <a href="/services" class="nav-link">Services</a>
+                        <a href="/projects" class="nav-link">Projects</a>
+                        <a href="/contact" class="nav-link">Contact</a>
+                    </nav>
+                    <div class="search">
+                        <a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
+                    </div>
+                </div>
+            </section>
+        </header>
+        <main>
+             @RenderBody()
+        </main>
+      @await Html.PartialAsync("static/footer")
+    </div>
+
+</body>
+</html>
