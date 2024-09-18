@@ -1,9 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
 body {
     height: 100%;
     margin: 0;
     font-family: 'Poppins', sans-serif;
 }
+
+
 .wrapper {
     display: flex;
     flex-direction: column;
@@ -78,38 +84,91 @@ header, main {
 /* ----------------Navbar------------------------- */
 
 .navbar {
- 
-    padding: 20px 0;
+    position: relative;
+    width: 100%;
+    background: #fdfcfc;
+    padding: 10px;
 }
 
-.container {
+.navbar .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.logo img {
-    max-width: 200px;
-}
-
-nav {
-    display: flex;
-    gap: 40px; 
-    margin: 0 auto;
-}
-
 .nav-link {
     color: #090909;
     text-decoration: none;
+    font-weight: 600;
     font-size: 22px;
-    font-weight: 500;
+    padding: 10px;
+}
+@media (max-width: 792px) {
+    .nav-link {
+        color: #e9e6e6;
+        text-decoration: none;
+        padding: 10px;
+    }
 }
 
 .search a {
-    font-size: 22px;
     color: #090909;
+    
+   
 }
 
+#menu-toggle {
+    display: none;
+}
+
+
+.menu-icon {
+    display: none;
+    font-size: 24px;
+    color: #090909;
+    cursor: pointer;
+}
+
+@media (max-width: 792px) {
+    .menu-icon {
+        display: block;
+    }
+    
+    nav {
+        display: none; 
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #000000;
+    }
+
+ 
+    #menu-toggle:checked + .menu-icon + nav {
+        display: flex;
+    }
+
+    .nav-link {
+        padding: 15px;
+        text-align: center;
+        border-bottom: 1px solid #444;
+    }
+}
+
+
+@media (min-width: 793px) {
+    nav {
+        display: flex; 
+        position: static; 
+    }
+
+    .nav-link {
+        padding: 10px;
+        text-align: left;
+        border: none;
+    }
+}
 
 /* -------Footer---------------------- */
 
@@ -133,9 +192,6 @@ footer {
     font-size: 18px;
     font-weight: 500;
 }
-
-
-
 /*-----------------------Hero----------------------*/
 
 
@@ -223,6 +279,10 @@ footer {
             background-color: #0056b3;
         }
 
+
+
+
+
 /*
 -------------------About------------------------*/
 
@@ -233,7 +293,7 @@ footer {
     gap: 20px;
     padding: 20px;
     position: relative; 
-    margin-bottom:80px;
+    margin-bottom: 120px;
 }
 
 
@@ -324,7 +384,6 @@ footer {
     transition: border-color 0.3s ease;
 }
 
-/* Efectos de enfoque en campos de entrada */
 .form-container input[type="text"]:focus,
 .form-container select:focus {
     border-color: #4F5955;
@@ -356,7 +415,7 @@ footer {
     background-color: #3c4844;
 }
 
-/* Ajustes para pantallas pequeñas */
+
 @media (max-width: 768px) {
     .content {
         flex-direction: column;

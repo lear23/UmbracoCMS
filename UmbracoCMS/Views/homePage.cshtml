@@ -3,7 +3,7 @@
 @{
 	Layout = "mainLayout.cshtml";
 	ViewBag.Title = Model?.Value("pageTitle") ?? null;
-    var bgImnage = Model?.Value<IPublishedContent>("heroBgImage")?.Url() ?? "";
+    var bgImnage = Model?.Value<IPublishedContent>("heroBgImage")?.Url() ?? ""; 
     var sigImage = Model?.Value<IPublishedContent>("aboutSigImage")?.Url() ?? "";
 }
 
@@ -20,7 +20,6 @@
     </div>
     
 </section>
-
 <section id="aboutUs" class="about-us">
     <div class="container">
         <div class="content">
@@ -56,4 +55,7 @@
             </div>
         </div>
     </div>
+</section>
+<section class="ourProjects">
+    @await Html.PartialAsync("static/ourServices")
 </section>

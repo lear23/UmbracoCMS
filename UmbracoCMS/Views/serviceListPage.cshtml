@@ -1,0 +1,81 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+
+@{
+
+	Layout = "mainLayout.cshtml";
+	ViewBag.Title = Model?.Value("pageTitle") ?? null;
+
+	var selection = Umbraco.Content(Guid.Parse("653f2a09-307e-48ba-bb43-cfade09988e9"))
+    .ChildrenOfType("servicesItemTemplate")
+    .Where(x => x.IsVisible());
+}
+
+<section id="our-service">
+	<div class="container">
+		@if(!string.IsNullOrEmpty(Model.Value("customHeadline").ToString())){
+			<div class="headline">
+				<h2 class="title">@Model.Value("customHeadline")</h2>
+			</div>
+		}
+		<div class="services">
+		@foreach (var item in selection){
+			var image = item?.Value<IPublishedContent>("thumbnailImage")?.Url() ?? "";
+			var preamble = item?.Value<string>("preamble") ?? "";
+
+				<a href="@item.Url()" class="card-link">
+					<div class="item card">
+						<div class="card-header">
+                            <h4>@item.Name</h4>
+						</div>
+						<div class="card-body">
+							<img src="@image" class="card-img-top" alt="@item.Name()">
+						</div>
+						<div class="card-footer">
+							<p class="card-text">@preamble</p>
+						</div>
+					</div>
+				</a>
+			
+		}
+		</div>
+	</div>
+</section>
+
+
+
+
+<!-- 
+<section id="our-service">
+	<div class="container">
+		@if(!string.IsNullOrEmpty(Model.Value("customHeadline").ToString())){
+			<div class="headline">
+				<h2 class="title">@Model.Value("customHeadline")</h2>
+			</div>
+		}
+		<div class="services">
+		@foreach (var item in selection){
+			var image = item?.Value<IPublishedContent>("thumbnailImage")?.Url() ?? "";
+			var preamble = item?.Value<string>("preamble") ?? "";
+
+				<a href="@item.Url()">
+					<div class="item">
+						<div class="header">
+                             <h4>@item.Name</h4>
+						</div>
+						<div class="body">
+							<img src="@image" alt="@item.Name()">
+						</div>
+						<div class="footer">
+							<P>@preamble</P>
+						</div>
+					</div>
+				</a>
+			
+		}
+		</div>
+	</div>
+</section> -->
+
+
+

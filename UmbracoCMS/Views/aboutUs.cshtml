@@ -1,0 +1,38 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+	Layout = "mainLayout.cshtml";
+    var sigImagePage = Model?.Value<IPublishedContent>("aboutPageImg")?.Url() ?? "";
+    var rattingImage = Model?.Value<IPublishedContent>("aboutPageReviewsRattingsImg")?.Url() ?? "";
+    var reviewsImage = Model?.Value<IPublishedContent>("aboutPageReviewsImg")?.Url() ?? "";
+
+    var h1Content = Model?.Value("aboutPageReviewsH1")?.ToString();
+    var formattedH1Content = h1Content?.Replace("\\n", "<br>");
+}
+
+ <link rel="stylesheet" href="/css/about.css">
+  <section class="container showcase">
+                <div class="showase-img">
+                    <img src="@sigImagePage" alt="">
+                    <p>@Model?.Value("aboutPageImageDescription")</p>
+                </div>
+                <div class="showcase-text">
+                    <h3>@Model?.Value("abotUsPageQuote")</h3>
+                  @Model?.Value("aboutUsTextDescription")
+                </div>             
+                                
+ </section>
+    <section class="reviews">
+                <div class="container">
+                    <h5>@Model?.Value("aboutPageSectionReviewsH5")</h5>
+                    <!-- <h1>@Model?.Value("aboutPageReviewsH1")</h1> -->
+                    <h1>@Html.Raw(formattedH1Content)</h1>
+                    <h4 class="h4reviews">@Model?.Value("aboutPageReviewsP")</h4>
+                    <div class="ratting">
+                        <img class="ratting" src="@rattingImage" alt="">
+                    </div>                   
+                   <p>@Model?.Value("aboutPageReviewsPname")</p>
+                   <h4 class="swebank">@Model?.Value("aboutPageCompanysName")</h4>
+                </div>
+                <img  src="@reviewsImage" alt="">
+ </section>
