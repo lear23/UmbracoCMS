@@ -1,15 +1,15 @@
 
-/* ------------ABOUT US PAGE--------------------- */
+/* ------------Breadcrumb--------------------- */
 
 
 
-  .about-headline {
+.onatrixHeadline {
     position: relative;
     width: 100%;
     height: 200px;
 }
 
-.about-headline img {
+.onatrixHeadline img {
     position: absolute;
     top: 0;
     left: 0;
@@ -18,7 +18,7 @@
     z-index: 1; 
 }
 
-.aboutus {
+.headline {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -28,13 +28,13 @@
     padding: 50px;
     
 }
-.aboutus .aboutus-home{   
+.headline .headline-home{   
   display:flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
 }
-.aboutus span{   
+.headline span{   
     color: #d9c3a9;
 }
 
